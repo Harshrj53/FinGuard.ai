@@ -6,3 +6,4 @@ matplotlib
 plotly
 joblib
 seaborn
+python-dotenv
