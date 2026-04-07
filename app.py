@@ -6,6 +6,16 @@ import plotly.express as px
 import plotly.graph_objects as go
 import time
 import io
+import os
+from dotenv import load_dotenv
+
+# Load local environment variables (if running locally via .env file)
+load_dotenv()
+
+# Read from OS Environment Variables (Render, Heroku, etc.)
+APP_VERSION = os.getenv("APP_VERSION", "v1.0.0")
+APP_ENV = os.getenv("APP_ENV", "Production")
+
 
 # ==========================================
 # PAGE CONFIG & CSS
@@ -208,7 +218,7 @@ with st.sidebar:
     choice = st.radio("Navigation", sections)
     
     st.markdown("---")
-    st.info(f"🟢 **System Online**\n\nActive Model: {BEST_MODEL_NAME}")
+    st.info(f"🟢 **System Online**\n\nActive Model: {BEST_MODEL_NAME}\n\nApp Env: {APP_ENV}\n\nVersion: {APP_VERSION}")
 
 # ==========================================
 # 1. HOME DASHBOARD
